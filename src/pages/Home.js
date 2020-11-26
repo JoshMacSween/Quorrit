@@ -1,15 +1,17 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
-import {Container, Col, Row} from 'react-bootstrap'
+import { Link } from 'react-router-dom'
+import { Container, Col, Row, Button } from 'react-bootstrap'
 
 export default function Home() {
   return (
-    <>
-      <h2>
-        Welcome to Quorrit, the online home for the worlds big (and small)
-        ideas!
-      </h2>
-      <Link to="/signUp">Sign Up</Link>
-    </>
+    <Container>
+      <h2 className="mt-3">Welcome to Quorrit!</h2>
+      <p className="ml-5">
+        <em>the online home for the worlds big (and small) ideas!</em>
+      </p>
+      <Button>
+        <Link to="/signUp">Sign Up</Link>
+      </Button>
+    </Container>
   )
 }

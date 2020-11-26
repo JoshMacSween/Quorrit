@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useAccount } from '../contexts/AccountProvider'
 import { Link } from 'react-router-dom'
-import { Form, Button } from 'react-bootstrap'
+import { Container, Form, Button } from 'react-bootstrap'
 
 export default function SignUp() {
   useEffect(() => {
@@ -20,8 +20,8 @@ export default function SignUp() {
   }
 
   return (
-    <div>
-      <h2>Sign Up</h2>
+    <Container>
+      <h2 className="mt-4">Sign Up</h2>
       <Form
         className="signUp"
         onSubmit={(event) => {
@@ -37,7 +37,7 @@ export default function SignUp() {
           name="username"
           placeholder="username"
           onChange={handleChange}
-        />
+        /><br />
         <Form.Label htmlFor="email">Email:</Form.Label>
         <Form.Control
           required
@@ -46,7 +46,7 @@ export default function SignUp() {
           name="email"
           placeholder="Email"
           onChange={handleChange}
-        />
+        /><br />
         <Form.Label htmlFor="password">Password:</Form.Label>
         <Form.Control
           required
@@ -55,12 +55,11 @@ export default function SignUp() {
           name="password"
           placeholder="Password"
           onChange={handleChange}
-        />
+        /><br />
         <Button type="submit">Submit</Button>
       </Form>
-      <Link to="/">Home</Link>
       {error && error.message}
-    </div>
+    </Container>
   )
 }
 
