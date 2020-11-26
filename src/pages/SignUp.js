@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useAccount } from '../contexts/AccountProvider'
 import { Link } from 'react-router-dom'
+import { Form, Button } from 'react-bootstrap'
 
 export default function SignUp() {
   useEffect(() => {
@@ -21,14 +22,14 @@ export default function SignUp() {
   return (
     <div>
       <h2>Sign Up</h2>
-      <form
+      <Form
         className="signUp"
         onSubmit={(event) => {
           handleSubmitSignUp(event, values)
         }}
       >
-        <label htmlFor="username">Username:</label>
-        <input
+        <Form.Label htmlFor="username">Username:</Form.Label>
+        <Form.Control
           autoFocus
           required
           type="text"
@@ -37,8 +38,8 @@ export default function SignUp() {
           placeholder="username"
           onChange={handleChange}
         />
-        <label htmlFor="email">Email:</label>
-        <input
+        <Form.Label htmlFor="email">Email:</Form.Label>
+        <Form.Control
           required
           type="email"
           id="email"
@@ -46,8 +47,8 @@ export default function SignUp() {
           placeholder="Email"
           onChange={handleChange}
         />
-        <label htmlFor="password">Password:</label>
-        <input
+        <Form.Label htmlFor="password">Password:</Form.Label>
+        <Form.Control
           required
           type="password"
           id="password"
@@ -55,8 +56,8 @@ export default function SignUp() {
           placeholder="Password"
           onChange={handleChange}
         />
-        <button type="submit">Submit</button>
-      </form>
+        <Button type="submit">Submit</Button>
+      </Form>
       <Link to="/">Home</Link>
       {error && error.message}
     </div>
