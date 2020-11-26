@@ -1,8 +1,11 @@
-import React from 'react'
+import React, { useState, useContext } from 'react'
 import { Navbar, Nav } from 'react-bootstrap'
 import { LinkContainer } from 'react-router-bootstrap'
+import { useAccount } from '../contexts/AccountProvider'
 
 export default function Header() {
+  const { handleSignOut, user } = useAccount()
+  // console.log(user.username)
   return (
     <>
       <Navbar bg="light" expand="lg">
@@ -13,9 +16,22 @@ export default function Header() {
             <LinkContainer to="/">
               <Nav.Link>Home</Nav.Link>
             </LinkContainer>
-            <LinkContainer to="/signUp">
+            {/* <LinkContainer to="/signUp">
               <Nav.Link>Sign Up</Nav.Link>
             </LinkContainer>
+            <LinkContainer to="/login">
+              <Nav.Link>Login</Nav.Link>
+            </LinkContainer> */}
+
+            {user ? (
+              <button onClick={handleSignOut} style={{ border: 'none' }}>
+                Sign Out
+              </button>
+            ) : (
+              <LinkContainer to="/login">
+                <Nav.Link>Login</Nav.Link>
+              </LinkContainer>
+            )}
           </Nav>
         </Navbar.Collapse>
       </Navbar>

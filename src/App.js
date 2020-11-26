@@ -1,5 +1,6 @@
 import SignUp from './pages/SignUp'
 import Home from './pages/Home'
+import Login from './pages/Login'
 import AccountProvider from './contexts/AccountProvider'
 import PostsProvider from './contexts/PostsProvider'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
@@ -17,6 +18,7 @@ function App() {
               <Switch>
                 <Route path="/" component={Home} exact />
                 <Route path="/signUp" component={SignUp} />
+                <Route path="/login" component={Login} />
               </Switch>
             </Router>
           </PostsProvider>
